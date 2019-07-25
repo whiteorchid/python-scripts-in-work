@@ -1,0 +1,14 @@
+######## this is kindly given by  "if", who wrote this, great thanks for him(her) !!!!!!!!!!!
+
+#!/python
+import sys
+from Bio import SeqIO
+for seq in SeqIO.parse(sys.argv[1],"fasta"):
+    seq1 = seq.seq[0:400000000]
+    seq2 = seq.seq[400000000:]
+    print ">"+seq.id + "_1"
+    for i in xrange(0,len(seq1),60):
+        print seq1[i:i+60]
+    print ">"+seq.id + "_2"
+    for i in xrange(0,len(seq2),60):
+        print seq2[i:i+60]
